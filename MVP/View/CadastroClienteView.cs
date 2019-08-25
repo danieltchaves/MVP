@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
+using MVP.Commands;
 
 namespace MVP
 {
@@ -21,6 +22,7 @@ namespace MVP
                 ErroLabel.Visible = !string.IsNullOrWhiteSpace(value);
             }
         }
+
         public event EventHandler Adicionar;
         public event EventHandler Remover;
         public event EventHandler Limpar;

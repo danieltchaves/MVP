@@ -9,24 +9,41 @@ namespace Test
 {
     class MockCadastroClienteView : ICadastroClienteView
     {
-        public void AdicionarItemGrid(string nome)
+        public string Nome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Erro { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public event EventHandler Adicionar;
+        public event EventHandler Remover;
+        public event EventHandler Limpar;
+
+        public void AdicionarItem(string nome)
         {
-           //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void LimparGrid()
+        public void AtribuirItems(List<string> nomes)
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void MostrarErroLabel(string msgErro)
+        public List<string> BuscarItems()
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void RemoverItemsGrid(string nome)
+        public void LimparItens()
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        public void MostrarMensagem(string msg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoverItem(string nome)
+        {
+            throw new NotImplementedException();
         }
     }
 }

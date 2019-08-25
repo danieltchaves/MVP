@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MVP.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVP
 {
@@ -16,6 +18,7 @@ namespace MVP
         List<string> BuscarItems();
         void AtribuirItems(List<string> nomes);
         void MostrarMensagem(string msg);
+
         event EventHandler Adicionar;
         event EventHandler Remover;
         event EventHandler Limpar;

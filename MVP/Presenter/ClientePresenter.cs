@@ -1,4 +1,5 @@
 ﻿
+using MVP.BusinessLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace MVP
     public class ClientePresenter
     {
         private ICadastroClienteView _view;
-
+        private ICliente _cliente;
         public ClientePresenter(ICadastroClienteView view)
         {
             _view = view;
@@ -16,6 +17,8 @@ namespace MVP
             _view.Adicionar += (s, a) => { executeAdicionar(view.Nome); };
             _view.Remover += (s, a) => { executeRemover(view.Nome); };
             _view.Limpar += (s, a) => { executeLimparGrid(); };
+
+            _cliente = new Cliente();
         }
 
         public void executeAdicionar(string nome)

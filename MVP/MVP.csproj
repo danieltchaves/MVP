@@ -52,6 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\Cliente.cs" />
+    <Compile Include="BusinessLogic\ICliente.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\SalvarCommand.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Presenter\ClientePresenter.cs" />
     <Compile Include="View\CadastroClienteView.cs">
