@@ -1,60 +1,72 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MVP
 {
     public partial class Form1 : Form, ICadastroClienteView
     {
-        private ClientePresenter _clienteBll;
-        private EventHandler AdicionarEventHandler;
-        private EventHandler RemoverEventHandler;
+        public string Nome
+        {
+            get => NomeTextBox.Text;
+            set => NomeTextBox.Text = value;
+        }
+        public string Erro
+        {
+            get => ErroLabel.Text;
+            set
+            {
+                ErroLabel.Text = value;
+                ErroLabel.Visible = !string.IsNullOrWhiteSpace(value);
+            }
+        }
+        public event EventHandler Adicionar;
+        public event EventHandler Remover;
+        public event EventHandler Limpar;
 
         public Form1()
         {
             InitializeComponent();
-            _clienteBll = new ClientePresenter(this);
-            AdicionarEventHandler += executeAdicionar;
-            RemoverEventHandler += executeRemover;
+            var _clienteBll = new ClientePresenter(this);
+            AdicionarButton.Click += Adicionar;
+            RemoverButton.Click += Remover;
+            LimparButton.Click += Limpar;
         }
 
-        private void executeAdicionar(object sender, EventArgs e)
-        {
-            _clienteBll.Adicionar(txtNome.Text);
-        }
-
-        private void executeRemover(object sender, EventArgs e)
-        {
-            _clienteBll.Remover(txtNome.Text);
-        }
-
-        public void AdicionarItemGrid(string nome)
+        public void AdicionarItem(string nome)
         {
             var pos = ClientesGrid.Rows.Add();
-            ClientesGrid[IDClienteGrid.Index, pos].Value = 0;
-            ClientesGrid[NomeClienteGrid.Index, pos].Value = txtNome.Text;
+            ClientesGrid[NomeClienteGrid.Index, pos].Value = NomeTextBox.Text;
         }
 
-        public void RemoverItemsGrid(string nome)
+        public void RemoverItem(string nome)
         {
-            foreach (DataGridViewRow row in ClientesGrid.Rows.Cast<DataGridViewRow>().Where(a=> a.Cells[NomeClienteGrid.Name].Value != null))
+            foreach (DataGridViewRow row in ClientesGrid.Rows.Cast<DataGridViewRow>().Where(a => a.Cells[NomeClienteGrid.Name].Value != null && 
+                                                                                                 a.Cells[NomeClienteGrid.Name].Value.ToString() == nome))
             {
-                if (row.Cells[NomeClienteGrid.Name].Value.ToString() == nome)
-                {
-                    ClientesGrid.Rows.Remove(row);
-                }
+                ClientesGrid.Rows.Remove(row);
             }
         }
 
-        public void LimparGrid()
+        public List<string> BuscarItems()
         {
-            ClientesGrid.Rows.Clear();
+            return ClientesGrid.Rows.Cast<DataGridViewRow>().Select(a => a.Cells[NomeClienteGrid.Name].ToString()).ToList();
         }
 
-        public void MostrarErroLabel(string msgErro)
+        public void AtribuirItems(List<string> nomes)
         {
-            lbError.Visible = true;
-            lbError.Text = msgErro;
+            ClientesGrid.DataSource = nomes;
+        }
+
+        public void MostrarMensagem(string msg)
+        {
+            MessageBox.Show(msg, @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void LimparItens()
+        {
+            ClientesGrid.Rows.Clear();
         }
     }
 }

@@ -1,31 +1,48 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MVP
 {
     public class ClientePresenter
     {
-        private ICadastroClienteView view;
+        private ICadastroClienteView _view;
 
         public ClientePresenter(ICadastroClienteView view)
         {
-            this.view = view;
+            _view = view;
+            _view.Nome = "tste";
+            _view.Adicionar += (s, a) => { executeAdicionar(view.Nome); };
+            _view.Remover += (s, a) => { executeRemover(view.Nome); };
+            _view.Limpar += (s, a) => { executeLimparGrid(); };
         }
 
-        public void Adicionar(string nome)
+        public void executeAdicionar(string nome)
         {
             if (string.IsNullOrWhiteSpace(nome))
             {
-                view.MostrarErroLabel("Nome inválido!");
+                _view.Erro = "Nome inválido!";
                 return;
             }
 
-            view.AdicionarItemGrid(nome);
+            _view.AdicionarItem(nome);
+            _view.Nome = "";
         }
 
-        public void Remover(string nome)
+        public void executeRemover(string nome)
         {
-            view.RemoverItemsGrid(nome);     
+            _view.RemoverItem(nome);
+        }
+
+        private void executeLimparGrid()
+        {
+            _view.Erro = "";
+            _view.Nome = "";
+            _view.LimparItens();
+            _view.MostrarMensagem("Pronto!");
+
+            _view.AtribuirItems(new List<string>() { "teste1", "teste2", "teste3" });
         }
     }
 }

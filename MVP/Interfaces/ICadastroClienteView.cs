@@ -8,11 +8,16 @@ namespace MVP
 {
     public interface ICadastroClienteView
     {
-        void AdicionarItemGrid(string nome);
-        void RemoverItemsGrid(string nome);
-        void LimparGrid();
-        void MostrarErroLabel(string msgErro);
-
-        //event EventHandler Adicionar;
+        string Nome { get; set; }
+        string Erro { get; set; }
+        void AdicionarItem(string nome);
+        void RemoverItem(string nome);
+        void LimparItens();
+        List<string> BuscarItems();
+        void AtribuirItems(List<string> nomes);
+        void MostrarMensagem(string msg);
+        event EventHandler Adicionar;
+        event EventHandler Remover;
+        event EventHandler Limpar;
     }
 }

@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Presenter\ClientePresenter.cs" />
     <Compile Include="View\CadastroClienteView.cs">
       <SubType>Form</SubType>

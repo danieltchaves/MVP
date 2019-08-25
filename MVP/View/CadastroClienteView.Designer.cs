@@ -28,96 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bntAdicionar = new System.Windows.Forms.Button();
+            this.AdicionarButton = new System.Windows.Forms.Button();
             this.ClientesGrid = new System.Windows.Forms.DataGridView();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.lbError = new System.Windows.Forms.Label();
-            this.IDClienteGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeLabel = new System.Windows.Forms.Label();
+            this.NomeTextBox = new System.Windows.Forms.TextBox();
+            this.ErroLabel = new System.Windows.Forms.Label();
+            this.RemoverButton = new System.Windows.Forms.Button();
+            this.LimparButton = new System.Windows.Forms.Button();
             this.NomeClienteGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // bntAdicionar
+            // AdicionarButton
             // 
-            this.bntAdicionar.Location = new System.Drawing.Point(159, 6);
-            this.bntAdicionar.Name = "bntAdicionar";
-            this.bntAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.bntAdicionar.TabIndex = 3;
-            this.bntAdicionar.Text = "Adicionar";
-            this.bntAdicionar.UseVisualStyleBackColor = true;
-            this.bntAdicionar.Click += new System.EventHandler(this.executeAdicionar);
+            this.AdicionarButton.Location = new System.Drawing.Point(159, 6);
+            this.AdicionarButton.Name = "AdicionarButton";
+            this.AdicionarButton.Size = new System.Drawing.Size(75, 23);
+            this.AdicionarButton.TabIndex = 3;
+            this.AdicionarButton.Text = "Adicionar";
+            this.AdicionarButton.UseVisualStyleBackColor = true;
             // 
             // ClientesGrid
             // 
             this.ClientesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ClientesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDClienteGrid,
             this.NomeClienteGrid});
             this.ClientesGrid.Location = new System.Drawing.Point(12, 48);
             this.ClientesGrid.Name = "ClientesGrid";
             this.ClientesGrid.Size = new System.Drawing.Size(412, 250);
             this.ClientesGrid.TabIndex = 4;
             // 
-            // lbNome
+            // NomeLabel
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(9, 12);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(38, 13);
-            this.lbNome.TabIndex = 5;
-            this.lbNome.Text = "Nome:";
+            this.NomeLabel.AutoSize = true;
+            this.NomeLabel.Location = new System.Drawing.Point(9, 12);
+            this.NomeLabel.Name = "NomeLabel";
+            this.NomeLabel.Size = new System.Drawing.Size(38, 13);
+            this.NomeLabel.TabIndex = 5;
+            this.NomeLabel.Text = "Nome:";
             // 
-            // txtNome
+            // NomeTextBox
             // 
-            this.txtNome.Location = new System.Drawing.Point(53, 9);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 6;
+            this.NomeTextBox.Location = new System.Drawing.Point(53, 9);
+            this.NomeTextBox.Name = "NomeTextBox";
+            this.NomeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.NomeTextBox.TabIndex = 6;
             // 
-            // lbError
+            // ErroLabel
             // 
-            this.lbError.AutoSize = true;
-            this.lbError.ForeColor = System.Drawing.Color.Red;
-            this.lbError.Location = new System.Drawing.Point(50, 32);
-            this.lbError.Name = "lbError";
-            this.lbError.Size = new System.Drawing.Size(35, 13);
-            this.lbError.TabIndex = 7;
-            this.lbError.Text = "label1";
-            this.lbError.Visible = false;
+            this.ErroLabel.AutoSize = true;
+            this.ErroLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErroLabel.Location = new System.Drawing.Point(50, 32);
+            this.ErroLabel.Name = "ErroLabel";
+            this.ErroLabel.Size = new System.Drawing.Size(35, 13);
+            this.ErroLabel.TabIndex = 7;
+            this.ErroLabel.Text = "label1";
+            this.ErroLabel.Visible = false;
             // 
-            // IDClienteGrid
+            // RemoverButton
             // 
-            this.IDClienteGrid.HeaderText = "Id";
-            this.IDClienteGrid.Name = "IDClienteGrid";
+            this.RemoverButton.Location = new System.Drawing.Point(240, 6);
+            this.RemoverButton.Name = "RemoverButton";
+            this.RemoverButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoverButton.TabIndex = 8;
+            this.RemoverButton.Text = "Remover";
+            this.RemoverButton.UseVisualStyleBackColor = true;
+            // 
+            // LimparButton
+            // 
+            this.LimparButton.Location = new System.Drawing.Point(321, 6);
+            this.LimparButton.Name = "LimparButton";
+            this.LimparButton.Size = new System.Drawing.Size(75, 23);
+            this.LimparButton.TabIndex = 9;
+            this.LimparButton.Text = "Limpar";
+            this.LimparButton.UseVisualStyleBackColor = true;
             // 
             // NomeClienteGrid
             // 
+            this.NomeClienteGrid.DataPropertyName = "Nome";
             this.NomeClienteGrid.HeaderText = "Nome";
             this.NomeClienteGrid.Name = "NomeClienteGrid";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(240, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Remover";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.executeRemover);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 312);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbError);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.lbNome);
+            this.Controls.Add(this.LimparButton);
+            this.Controls.Add(this.RemoverButton);
+            this.Controls.Add(this.ErroLabel);
+            this.Controls.Add(this.NomeTextBox);
+            this.Controls.Add(this.NomeLabel);
             this.Controls.Add(this.ClientesGrid);
-            this.Controls.Add(this.bntAdicionar);
+            this.Controls.Add(this.AdicionarButton);
             this.Name = "Form1";
             this.Text = "Cadastro Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.ClientesGrid)).EndInit();
@@ -127,14 +130,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bntAdicionar;
+        private System.Windows.Forms.Button AdicionarButton;
         private System.Windows.Forms.DataGridView ClientesGrid;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label lbError;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDClienteGrid;
+        private System.Windows.Forms.Label NomeLabel;
+        private System.Windows.Forms.TextBox NomeTextBox;
+        private System.Windows.Forms.Label ErroLabel;
+        private System.Windows.Forms.Button RemoverButton;
+        private System.Windows.Forms.Button LimparButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeClienteGrid;
-        private System.Windows.Forms.Button button1;
     }
 }
 
