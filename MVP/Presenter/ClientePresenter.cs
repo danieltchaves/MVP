@@ -10,15 +10,15 @@ namespace MVP
     {
         private ICadastroClienteView _view;
         private ICliente _cliente;
-        public ClientePresenter(ICadastroClienteView view)
+
+        public ClientePresenter(ICadastroClienteView view, ICliente cliente)
         {
             _view = view;
             _view.Nome = "tste";
-            _view.Adicionar += (s, a) => { executeAdicionar(view.Nome); };
-            _view.Remover += (s, a) => { executeRemover(view.Nome); };
-            _view.Limpar += (s, a) => { executeLimparGrid(); };
-
-            _cliente = new Cliente();
+            _view.Adicionar += executeAdicionar;
+            _view.Remover += executeRemover;
+            _view.Limpar += executeLimparGrid;
+            _cliente = cliente;
         }
 
         public void executeAdicionar(string nome)

@@ -19,8 +19,8 @@ namespace MVP
         void AtribuirItems(List<string> nomes);
         void MostrarMensagem(string msg);
 
-        event EventHandler Adicionar;
-        event EventHandler Remover;
-        event EventHandler Limpar;
+        event Action<string> Adicionar;
+        event Action<string> Remover;
+        event Action Limpar;
     }
 }
