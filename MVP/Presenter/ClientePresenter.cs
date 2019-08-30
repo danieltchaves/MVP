@@ -26,6 +26,7 @@ namespace MVP
             if (string.IsNullOrWhiteSpace(nome))
             {
                 _view.Erro = "Nome inválido!";
+                _view.FocoNome();
                 return;
             }
 

@@ -12,9 +12,9 @@ namespace Test
         public string Nome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Erro { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public event EventHandler Adicionar;
-        public event EventHandler Remover;
-        public event EventHandler Limpar;
+        public event Action<string> Adicionar;
+        public event Action<string> Remover;
+        public event Action Limpar;
 
         public void AdicionarItem(string nome)
         {
@@ -27,6 +27,11 @@ namespace Test
         }
 
         public List<string> BuscarItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void FocoNome()
         {
             throw new NotImplementedException();
         }

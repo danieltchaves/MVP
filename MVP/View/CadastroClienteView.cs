@@ -32,7 +32,7 @@ namespace MVP
         {
             InitializeComponent();
             var _clienteBll = new ClientePresenter(this, cliente);
-            AdicionarButton.Click += (s,a) => Adicionar(NomeTextBox.Text);
+            AdicionarButton.Click += (s, a) => Adicionar(NomeTextBox.Text);
             RemoverButton.Click += (s,a) => Remover(NomeTextBox.Text);
             LimparButton.Click += (a,s) => Limpar();
         }
@@ -70,6 +70,11 @@ namespace MVP
         public void LimparItens()
         {
             ClientesGrid.Rows.Clear();
+        }
+
+        public void FocoNome()
+        {
+            NomeTextBox.Focus();
         }
     }
 }

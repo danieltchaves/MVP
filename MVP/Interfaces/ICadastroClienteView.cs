@@ -18,6 +18,7 @@ namespace MVP
         List<string> BuscarItems();
         void AtribuirItems(List<string> nomes);
         void MostrarMensagem(string msg);
+        void FocoNome();
 
         event Action<string> Adicionar;
         event Action<string> Remover;
