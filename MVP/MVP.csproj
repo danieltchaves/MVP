@@ -61,8 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\Cliente.cs" />
-    <Compile Include="BusinessLogic\ICliente.cs" />
+    <Compile Include="Repository\ClienteRepository.cs" />
+    <Compile Include="Repository\IClienteRepository.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\SalvarCommand.cs" />

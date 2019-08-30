@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVP.BusinessLogic
 {
-    class Cliente : ICliente
+    class ClienteRepository : IClienteRepository
     {
         public void Ataulizar()
         {

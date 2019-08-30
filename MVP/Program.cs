@@ -18,11 +18,11 @@ namespace MVP
         {
             IUnityContainer unity = new UnityContainer()
                                     .RegisterType<ICadastroClienteView, Form1>()
-                                    .RegisterType<ICliente, Cliente>();
+                                    .RegisterType<IClienteRepository, ClienteRepository>();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(new Cliente()));
+            Application.Run(new Form1(new ClienteRepository()));
             //Application.Run((Form1)unity);
         }
     }

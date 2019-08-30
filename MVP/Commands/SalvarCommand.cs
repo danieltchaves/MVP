@@ -9,9 +9,9 @@ namespace MVP.Commands
 {
     class SalvarCommand : BaseCommand
     {
-        private readonly ICliente _cliente;
+        private readonly IClienteRepository _cliente;
 
-        public SalvarCommand(ICliente cliente)
+        public SalvarCommand(IClienteRepository cliente)
         {
             _cliente = cliente;
         }

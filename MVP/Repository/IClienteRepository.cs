@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVP.BusinessLogic
 {
-    public interface ICliente : IDisposable
+    public interface IClienteRepository : IDisposable
     {
         void Salvar();
         void Ataulizar();

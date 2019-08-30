@@ -28,7 +28,7 @@ namespace MVP
         public event Action<string> Remover;
         public event Action Limpar;
 
-        public Form1(ICliente cliente)
+        public Form1(IClienteRepository cliente)
         {
             InitializeComponent();
             var _clienteBll = new ClientePresenter(this, cliente);

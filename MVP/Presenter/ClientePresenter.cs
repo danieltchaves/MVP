@@ -9,9 +9,9 @@ namespace MVP
     public class ClientePresenter
     {
         private ICadastroClienteView _view;
-        private ICliente _cliente;
+        private IClienteRepository _cliente;
 
-        public ClientePresenter(ICadastroClienteView view, ICliente cliente)
+        public ClientePresenter(ICadastroClienteView view, IClienteRepository cliente)
         {
             _view = view;
             _view.Nome = "tste";

@@ -2,6 +2,7 @@
 using MVP;
 using MVP.BusinessLogic;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Test
@@ -13,13 +14,13 @@ namespace Test
         [InlineData("Teste")]
         public void ClienteAdicionar(string nome)
         {
-            Mock<ICadastroClienteView> mockClienteView = new Mock<ICadastroClienteView>();
-            Mock<ICliente> mockCliente = new Mock<ICliente>();
+            Mock<ICadastroClienteView> clienteView = new Mock<ICadastroClienteView>();
+            Mock<IClienteRepository> clienteRepository = new Mock<IClienteRepository>();
 
-            mockClienteView.Setup(m => m.AdicionarItem(nome));//.Returns("Produto barato!");
-            mockCliente.Setup(m => m.Buscar());//.Returns("Produto barato!");
+            clienteView.Setup(m => m.AdicionarItem(nome));
+            clienteRepository.Setup(m => m.Buscar()).Returns(new List<ClienteModel>());
 
-            ClientePresenter clientePresenter = new ClientePresenter(mockClienteView.Object, mockCliente.Object);
+            ClientePresenter clientePresenter = new ClientePresenter(clienteView.Object, clienteRepository.Object);
 
             clientePresenter.executeAdicionar(nome);
 
