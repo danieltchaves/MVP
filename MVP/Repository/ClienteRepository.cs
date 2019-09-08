@@ -8,7 +8,7 @@ namespace MVP.BusinessLogic
 {
     class ClienteRepository : IClienteRepository
     {
-        public void Ataulizar()
+        public void Ataulizar(string nome)
         {
             throw new NotImplementedException();
         }
@@ -18,7 +18,7 @@ namespace MVP.BusinessLogic
             throw new NotImplementedException();
         }
 
-        public void Deletar()
+        public void Deletar(string nome)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace MVP.BusinessLogic
             throw new NotImplementedException();
         }
 
-        public void Salvar()
+        public void Salvar(string nome)
         {
             throw new NotImplementedException();
         }

@@ -61,11 +61,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Event\Event.cs" />
+    <Compile Include="Base\Handler\IEventHandler.cs" />
+    <Compile Include="Commands\ClienteAtualizarCommand.cs" />
+    <Compile Include="Event\ClienteAtualizarEvent.cs" />
+    <Compile Include="Commands\ClienteCommandHandler.cs" />
+    <Compile Include="Event\ClienteSalvarEvent.cs" />
+    <Compile Include="Base\Event\IEvent.cs" />
+    <Compile Include="Base\Handler\ICommandHandler.cs" />
     <Compile Include="Repository\ClienteRepository.cs" />
     <Compile Include="Repository\IClienteRepository.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\BaseCommand.cs" />
-    <Compile Include="Commands\SalvarCommand.cs" />
+    <Compile Include="Base\Command\Command.cs" />
+    <Compile Include="Commands\ClienteSalvarCommand.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Presenter\ClientePresenter.cs" />
     <Compile Include="View\CadastroClienteView.cs">
@@ -103,5 +110,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
