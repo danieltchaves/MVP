@@ -5,6 +5,6 @@ namespace MVP.Base.Handler
 {
     public interface ICommandHandler<T> where T : Command
     {
-        Task<bool> Execute(T command);
+        Task<bool> Handle(T command);
     }
 }

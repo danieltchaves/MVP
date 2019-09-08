@@ -18,7 +18,7 @@ namespace MVP.Commands
 
         public override bool IsValid()
         {
-            throw new NotImplementedException();
+            return !string.IsNullOrEmpty(Nome);
         }
     }
 }

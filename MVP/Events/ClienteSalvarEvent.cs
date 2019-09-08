@@ -8,5 +8,8 @@ namespace MVP.Event
 {
     public class ClienteSalvarEvent : Base.Event.Event
     {
+        ClienteSalvarEvent()
+        {
+        }
     }
 }

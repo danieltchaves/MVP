@@ -1,10 +1,7 @@
-﻿using MVP.BusinessLogic;
+﻿using MVP.Repository;
+using MVP.Commands;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Unity;
 
 namespace MVP
 {
@@ -16,14 +13,14 @@ namespace MVP
         [STAThread]
         static void Main()
         {
-            IUnityContainer unity = new UnityContainer()
-                                    .RegisterType<ICadastroClienteView, Form1>()
-                                    .RegisterType<IClienteRepository, ClienteRepository>();
+            //IUnityContainer unity = new UnityContainer()
+            //                        .RegisterType<ICadastroClienteView, Form1>()
+            //                        .RegisterType<IClienteRepository, ClienteRepository>();
+            //Application.Run((Form1)unity);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(new ClienteRepository()));
-            //Application.Run((Form1)unity);
+            Application.Run(new Form1(new ClienteCommandHandler(new ClienteRepository())));
         }
     }
 }

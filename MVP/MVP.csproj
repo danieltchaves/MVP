@@ -64,11 +64,12 @@
     <Compile Include="Base\Event\Event.cs" />
     <Compile Include="Base\Handler\IEventHandler.cs" />
     <Compile Include="Commands\ClienteAtualizarCommand.cs" />
-    <Compile Include="Event\ClienteAtualizarEvent.cs" />
+    <Compile Include="Events\ClienteAtualizarEvent.cs" />
     <Compile Include="Commands\ClienteCommandHandler.cs" />
-    <Compile Include="Event\ClienteSalvarEvent.cs" />
-    <Compile Include="Base\Event\IEvent.cs" />
+    <Compile Include="Events\ClienteEventHandler.cs" />
+    <Compile Include="Events\ClienteSalvarEvent.cs" />
     <Compile Include="Base\Handler\ICommandHandler.cs" />
+    <Compile Include="Query\ClienteQuery.cs" />
     <Compile Include="Repository\ClienteRepository.cs" />
     <Compile Include="Repository\IClienteRepository.cs" />
     <Compile Include="Base\Command\Command.cs" />

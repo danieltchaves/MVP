@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVP.Event
 {
-    public class ClienteAtualizarEvent
+    public class ClienteAtualizarEvent : Base.Event.Event
     {
+        ClienteAtualizarEvent()
+        {
+
+        }
     }
 }

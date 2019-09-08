@@ -1,26 +1,26 @@
 ﻿
-using MVP.BusinessLogic;
+using MVP.Repository;
 using MVP.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MVP
 {
     public class ClientePresenter
     {
         private ICadastroClienteView _view;
-        private IClienteRepository _clienteRepository;
         private ClienteCommandHandler _clienteCommand;
-        public ClientePresenter(ICadastroClienteView view, IClienteRepository clienteRepository, ClienteCommandHandler clienteCommand)
+        public ClientePresenter(ICadastroClienteView view, ClienteCommandHandler clienteCommand)
         {
             _view = view;
+            _clienteCommand = clienteCommand;
             _view.Nome = "tste";
             _view.Adicionar += executeAdicionar;
             _view.Remover += executeRemover;
             _view.Limpar += executeLimparGrid;
-            _clienteRepository = clienteRepository;
-            _clienteCommand = clienteCommand;
+            _view.Salvar += async (s) => { await executeSalvar(s); };
         }
 
         public void executeAdicionar(string nome)
@@ -51,9 +51,9 @@ namespace MVP
             _view.AtribuirItems(new List<string>() { "teste1", "teste2", "teste3" });
         }
 
-        private void executeSalvar(string nome)
+        public async Task<bool> executeSalvar(string nome)
         {
-            _clienteCommand.Execute(new ClienteSalvarCommand(nome, _clienteRepository));
+            return await _clienteCommand.Handle(new ClienteSalvarCommand(nome));
         }
     }
 }

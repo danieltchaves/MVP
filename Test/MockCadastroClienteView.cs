@@ -15,6 +15,7 @@ namespace Test
         public event Action<string> Adicionar;
         public event Action<string> Remover;
         public event Action Limpar;
+        public event Action<string> Salvar;
 
         public void AdicionarItem(string nome)
         {

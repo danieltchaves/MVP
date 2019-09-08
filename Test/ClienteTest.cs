@@ -1,9 +1,11 @@
 ﻿using Moq;
 using MVP;
-using MVP.BusinessLogic;
+using MVP.Repository;
+using MVP.Commands;
 using System;
 using System.Collections.Generic;
 using Xunit;
+using System.Threading.Tasks;
 
 namespace Test
 {
@@ -12,19 +14,19 @@ namespace Test
         [Theory()]
         [Trait("Cliente", "Adicionar")]
         [InlineData("Teste")]
-        public void ClienteAdicionar(string nome)
+        [InlineData("")]
+        public async void ClienteSalvar(string nome)
         {
             Mock<ICadastroClienteView> clienteView = new Mock<ICadastroClienteView>();
             Mock<IClienteRepository> clienteRepository = new Mock<IClienteRepository>();
+            Mock<ClienteCommandHandler> clienteCommandHandler = new Mock<ClienteCommandHandler>(clienteRepository.Object);
 
-            clienteView.Setup(m => m.AdicionarItem(nome));
-            clienteRepository.Setup(m => m.Buscar()).Returns(new List<ClienteModel>());
+            clienteRepository.Setup(m => m.Buscar(nome)).Returns(new ClienteModel( 1, nome));
 
-            ClientePresenter clientePresenter = new ClientePresenter(clienteView.Object, clienteRepository.Object);
+            ClientePresenter clientePresenter = new ClientePresenter(clienteView.Object, clienteCommandHandler.Object);
+            var retorno = await clientePresenter.executeSalvar(nome);
 
-            clientePresenter.executeAdicionar(nome);
-
-            Assert.True(true);
+            Assert.True(retorno);
         }
     }
 }

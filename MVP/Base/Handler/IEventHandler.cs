@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MVP.Base.Handler
 {
-    public interface IEventHandler
+    public interface IEventHandler<T> where T : Base.Event.Event
     {
-        Task Handle<T>(T command) where T : Base.Event.Event;
+        Task Handle(T evento);
     }
 }

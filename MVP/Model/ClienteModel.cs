@@ -11,7 +11,7 @@ namespace MVP
         public int Id { get; }
         public string Nome { get; }
 
-        ClienteModel(int id, string nome)
+        public ClienteModel(int id, string nome)
         {
             Id = id;
             Nome = nome;

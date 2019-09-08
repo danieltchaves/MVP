@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using MVP.Commands;
-using MVP.BusinessLogic;
 
 namespace MVP
 {
@@ -27,14 +26,16 @@ namespace MVP
         public event Action<string> Adicionar;
         public event Action<string> Remover;
         public event Action Limpar;
+        public event Action<string> Salvar;
 
-        public Form1(IClienteRepository cliente)
+        public Form1(ClienteCommandHandler clienteCommandHandler)
         {
             InitializeComponent();
-            var _clienteBll = new ClientePresenter(this, cliente);
+            var _clientePresenter = new ClientePresenter(this, clienteCommandHandler);
             AdicionarButton.Click += (s, a) => Adicionar(NomeTextBox.Text);
             RemoverButton.Click += (s,a) => Remover(NomeTextBox.Text);
             LimparButton.Click += (a,s) => Limpar();
+            SalvarButton.Click += (s, a) => Salvar(NomeTextBox.Text);
         }
 
         public void AdicionarItem(string nome)

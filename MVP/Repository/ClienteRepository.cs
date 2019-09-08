@@ -4,18 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVP.BusinessLogic
+namespace MVP.Repository
 {
     class ClienteRepository : IClienteRepository
     {
         public void Ataulizar(string nome)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public IEnumerable<ClienteModel> Buscar()
         {
             throw new NotImplementedException();
+        }
+
+        public ClienteModel Buscar(string nome)
+        {
+            return null;
         }
 
         public void Deletar(string nome)
@@ -30,7 +35,7 @@ namespace MVP.BusinessLogic
 
         public void Salvar(string nome)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

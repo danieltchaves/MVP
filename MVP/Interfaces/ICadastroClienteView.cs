@@ -22,6 +22,7 @@ namespace MVP
 
         event Action<string> Adicionar;
         event Action<string> Remover;
+        event Action<string> Salvar;
         event Action Limpar;
     }
 }

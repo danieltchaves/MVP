@@ -1,5 +1,5 @@
 ﻿using MVP.Base.Commands;
-using MVP.BusinessLogic;
+using MVP.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,9 @@ namespace MVP.Commands
     public class ClienteSalvarCommand : Command
     {
         public string Nome { get; set; }
-        IClienteRepository _clienteRepository;
-        public ClienteSalvarCommand(string nome, IClienteRepository clienteRepository)
+        public ClienteSalvarCommand(string nome)
         {
             Nome = nome;
-            _clienteRepository = clienteRepository;
-            _clienteRepository.Salvar(nome);
         }
 
         public override bool IsValid()

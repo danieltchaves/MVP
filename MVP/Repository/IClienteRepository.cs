@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVP.BusinessLogic
+namespace MVP.Repository
 {
     public interface IClienteRepository : IDisposable
     {
@@ -12,5 +12,6 @@ namespace MVP.BusinessLogic
         void Ataulizar(string nome);
         void Deletar(string nome);
         IEnumerable<ClienteModel> Buscar();
+        ClienteModel Buscar(string nome);
     }
 }

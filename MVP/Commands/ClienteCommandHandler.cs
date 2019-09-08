@@ -1,4 +1,4 @@
-﻿using MVP.BusinessLogic;
+﻿using MVP.Repository;
 using MVP.Event;
 using System;
 using System.Collections.Generic;
@@ -12,28 +12,26 @@ namespace MVP.Commands
                                          Base.Handler.ICommandHandler<ClienteAtualizarCommand>
     {
         IClienteRepository _clienteRepository;
-        ClienteCommandHandler(IClienteRepository clienteRepository)
+        public ClienteCommandHandler(IClienteRepository clienteRepository)
         {
             _clienteRepository = clienteRepository;
         }
         
-        public Task<bool> Execute(ClienteSalvarCommand command)
+        public Task<bool> Handle(ClienteSalvarCommand command)
         {
-            if (!command.IsValid())
-            {
-                return Task.FromResult(false);
-            }
+            if (!command.IsValid()) return Task.FromResult(false);
 
+            var cliente = _clienteRepository.Buscar(command.Nome);
+            if(cliente == null) _clienteRepository.Salvar(command.Nome);
+            else _clienteRepository.Ataulizar(command.Nome);
             return Task.FromResult(true);
         }
 
-        public Task<bool> Execute(ClienteAtualizarCommand command)
+        public Task<bool> Handle(ClienteAtualizarCommand command)
         {
-            if (!command.IsValid())
-            {
-                return Task.FromResult(false);
-            }
+            if (!command.IsValid()) return Task.FromResult(false);
 
+            _clienteRepository.Ataulizar(command.Nome);
             return Task.FromResult(true);
         }
     }

@@ -30,12 +30,13 @@
         {
             this.AdicionarButton = new System.Windows.Forms.Button();
             this.ClientesGrid = new System.Windows.Forms.DataGridView();
+            this.NomeClienteGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeLabel = new System.Windows.Forms.Label();
             this.NomeTextBox = new System.Windows.Forms.TextBox();
             this.ErroLabel = new System.Windows.Forms.Label();
             this.RemoverButton = new System.Windows.Forms.Button();
             this.LimparButton = new System.Windows.Forms.Button();
-            this.NomeClienteGrid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalvarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,8 +56,14 @@
             this.NomeClienteGrid});
             this.ClientesGrid.Location = new System.Drawing.Point(12, 48);
             this.ClientesGrid.Name = "ClientesGrid";
-            this.ClientesGrid.Size = new System.Drawing.Size(412, 250);
+            this.ClientesGrid.Size = new System.Drawing.Size(465, 250);
             this.ClientesGrid.TabIndex = 4;
+            // 
+            // NomeClienteGrid
+            // 
+            this.NomeClienteGrid.DataPropertyName = "Nome";
+            this.NomeClienteGrid.HeaderText = "Nome";
+            this.NomeClienteGrid.Name = "NomeClienteGrid";
             // 
             // NomeLabel
             // 
@@ -103,17 +110,21 @@
             this.LimparButton.Text = "Limpar";
             this.LimparButton.UseVisualStyleBackColor = true;
             // 
-            // NomeClienteGrid
+            // SalvarButton
             // 
-            this.NomeClienteGrid.DataPropertyName = "Nome";
-            this.NomeClienteGrid.HeaderText = "Nome";
-            this.NomeClienteGrid.Name = "NomeClienteGrid";
+            this.SalvarButton.Location = new System.Drawing.Point(402, 6);
+            this.SalvarButton.Name = "SalvarButton";
+            this.SalvarButton.Size = new System.Drawing.Size(75, 23);
+            this.SalvarButton.TabIndex = 10;
+            this.SalvarButton.Text = "Salvar";
+            this.SalvarButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 312);
+            this.ClientSize = new System.Drawing.Size(486, 312);
+            this.Controls.Add(this.SalvarButton);
             this.Controls.Add(this.LimparButton);
             this.Controls.Add(this.RemoverButton);
             this.Controls.Add(this.ErroLabel);
@@ -138,6 +149,7 @@
         private System.Windows.Forms.Button RemoverButton;
         private System.Windows.Forms.Button LimparButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeClienteGrid;
+        private System.Windows.Forms.Button SalvarButton;
     }
 }
 
